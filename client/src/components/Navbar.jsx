@@ -130,6 +130,9 @@ const Navbar = () => {
           <li className="text-white py-1">
             <Link to="/login"> log in</Link>
           </li>
+          <li className="text-white py-1">
+            <Link to="/sign-up"> Sign up</Link>
+          </li>
         </ul>
       </div>
     </header>
