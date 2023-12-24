@@ -107,7 +107,10 @@ const Navbar = () => {
       >
         <ul>
           {navItems.map(({ path, title }) => (
-            <li key={path} className="text-base text-white">
+            <li
+              key={path}
+              className="text-base text-white first:text-white py-1"
+            >
               <NavLink
                 style={({ isActive, isPending }) => {
                   return {
@@ -123,6 +126,10 @@ const Navbar = () => {
               </NavLink>
             </li>
           ))}
+
+          <li className="text-white py-1">
+            <Link to="/login"> log in</Link>
+          </li>
         </ul>
       </div>
     </header>
