@@ -49,7 +49,7 @@ const Navbar = () => {
             <circle cx="16.9857" cy="17.4857" r="12.0143" fill="#3575E2" />
           </svg>
           {""}
-          <span>JobPortal</span>{" "}
+          <span>JobSynergy</span>{" "}
         </a>
         {/* nav items for large devices */}
         <ul className="hidden md:flex gap-12 ">
