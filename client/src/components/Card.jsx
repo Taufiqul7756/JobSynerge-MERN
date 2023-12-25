@@ -40,6 +40,7 @@ const Card = ({ data }) => {
               <FiCalendar /> {postingDate}
             </span>
           </div>
+          <p className="text-base text-primary/70">{description}</p>
         </div>
       </Link>
     </section>
