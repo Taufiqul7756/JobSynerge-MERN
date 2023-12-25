@@ -44,6 +44,28 @@ const Home = () => {
     setSelectedCategory(event.target.value);
   };
 
+  //calculate the index range
+  const calculatePageRange = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    return { startIndex, endIndex };
+  };
+
+  // function for next page
+
+  const nextPage = () => {
+    if (currentPage < Math.ceil(filteredItems.length / itemsPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  // function for the previous page
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
   // main functions
   const filteredData = (jobs, selected, query) => {
     let filteredJobs = jobs;
@@ -73,6 +95,9 @@ const Home = () => {
 
       console.log(filteredJobs);
     }
+    // slice the data based on current page
+    const { startIndex, endIndex } = calculatePageRange();
+    filteredJobs = filteredJobs.slice(startIndex, endIndex);
     return filteredJobs.map((data, i) => <Card key={i} data={data} />);
   };
 
@@ -99,6 +124,34 @@ const Home = () => {
               <h2 className=" text-lg mb-2 font-bold">{result.length} Jobs</h2>
               <p>No data found!</p>
             </>
+          )}
+          {/* pagination here */}
+          {result.length > 0 ? (
+            <div className="flex justify-center mt-4 space-x-8">
+              <button
+                className="hover:underline"
+                onClick={prevPage}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+              <span className="mx-2">
+                Page {currentPage} of{" "}
+                {Math.ceil(filteredItems.length / itemsPerPage)}
+              </span>
+              <button
+                onClick={nextPage}
+                disabled={
+                  currentPage === Math.ceil(filteredItems.length / itemsPerPage)
+                }
+                className="hover:underline"
+              >
+                {" "}
+                Next
+              </button>
+            </div>
+          ) : (
+            ""
           )}
         </div>
         {/* Right*/}
