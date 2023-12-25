@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
 import JobPostingData from "../sidebar/JobPostingData";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -109,14 +110,14 @@ const Home = () => {
     <div>
       <Banner query={query} handleInputChange={handleInputChange} />
       {/* main contents */}
-      <div className="bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-1 ">
+      <div className=" bg-grey md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-1 ">
         {/* Filtering sides - Left*/}
-        <div className="bg-white p-4 rounded">
+        <div className="bg-[#fbf9f9] p-4 rounded">
           <Sidebar handleChange={handleChange} handleClick={handleClick} />
         </div>
 
         {/* this is for jobs card */}
-        <div className="col-span-2 bg-white p-4 rounded">
+        <div className="col-span-2 bg-[#fbf9f9] p-4 rounded">
           {" "}
           {isLoading ? (
             <p className="font-medium">Loading ...</p>
@@ -158,7 +159,9 @@ const Home = () => {
           )}
         </div>
         {/* Right*/}
-        <div className="bg-white p-4 rounded">Right</div>
+        <div className="bg-[#fbf9f9] p-4 rounded">
+          <NewsLetter />
+        </div>
       </div>
     </div>
   );
