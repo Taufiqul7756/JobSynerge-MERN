@@ -4,6 +4,10 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
+.common-color {
+  background-color: #e7e6e6;
+}
+
 .active {
   color: #3575e2;
   font-weight: 500;
