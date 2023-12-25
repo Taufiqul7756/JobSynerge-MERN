@@ -1,7 +1,6 @@
 import React from "react";
 
 const InputField = ({ handleChange, value, title, name }) => {
-  console.log("kkkkkkkkkk", value, title, name);
   return (
     <label className="sidebar-label-container">
       <input type="radio" name={name} value={value} onChange={handleChange} />
