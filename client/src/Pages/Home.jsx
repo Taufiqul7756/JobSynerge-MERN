@@ -8,12 +8,17 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
   const [query, setQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("jobs.json")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
+        setIsLoading(false);
       });
   }, []);
 
@@ -22,7 +27,6 @@ const Home = () => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
-  // console.log(query);
 
   //filter jobs by title
 
@@ -86,7 +90,16 @@ const Home = () => {
         {/* this is for jobs card */}
         <div className="col-span-2 bg-white p-4 rounded">
           {" "}
-          <Jobs result={result} />
+          {isLoading ? (
+            <p className="font-medium">Loading ...</p>
+          ) : result.length > 0 ? (
+            <Jobs result={result} />
+          ) : (
+            <>
+              <h2 className=" text-lg mb-2 font-bold">{result.length} Jobs</h2>
+              <p>No data found!</p>
+            </>
+          )}
         </div>
         {/* Right*/}
         <div className="bg-white p-4 rounded">Right</div>
