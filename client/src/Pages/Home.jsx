@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Card from "../components/Card";
 import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
+import JobPostingData from "../sidebar/JobPostingData";
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -87,14 +88,15 @@ const Home = () => {
           postingDate,
         }) =>
           jobLocation.toLowerCase() === selected.toLowerCase() ||
-          maxPrice === selected ||
           parseInt(maxPrice) <= parseInt(selected) ||
+          postingDate >= selected ||
           salaryType.toLowerCase() === selected.toLowerCase() ||
           employmentType.toLowerCase() === selected.toLowerCase()
       );
 
       console.log(filteredJobs);
     }
+
     // slice the data based on current page
     const { startIndex, endIndex } = calculatePageRange();
     filteredJobs = filteredJobs.slice(startIndex, endIndex);
