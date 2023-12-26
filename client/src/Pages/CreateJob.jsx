@@ -31,7 +31,7 @@ const CreateJob = () => {
   ];
 
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
+    <div className="bg-grey max-w-screen-2xl container mx-auto xl:px-24 px-4">
       {/* form */}
       <div className="bg-[#FAFAFA] py-10 px-4 lg:px-16 ">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
