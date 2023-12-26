@@ -67,7 +67,7 @@ const CreateJob = () => {
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
               <label className="block mb-2 text-lg">Salary Type</label>
-              <select {...register("salaryType", { required: true })}>
+              <select {...register("salaryType")} className="create-job-input">
                 <option value="">Choose your Salary</option>
                 <option value="Hourly">Hourly</option>
                 <option value="Monthly">Monthly</option>
@@ -85,7 +85,36 @@ const CreateJob = () => {
               />
             </div>
           </div>
-          <input type="submit" className="my-5" />
+
+          {/* Fourth row */}
+          <div className="create-job-flex">
+            <div className="lg:w-1/2 w-full">
+              <label className="block mb-2 text-lg">Job Posting Date</label>
+              <input
+                type="date"
+                placeholder="Ex: 2023-12-26"
+                {...register("postingDate")}
+                className="create-job-input"
+              />
+            </div>
+
+            <div className="lg:w-1/2 w-full">
+              <label className="block mb-2 text-lg">Experience Level</label>
+              <select
+                {...register("experienceLevel")}
+                className="create-job-input"
+              >
+                <option value="">Select your Experience Level</option>
+                <option value="Any experience">Any experience</option>
+                <option value="Internship">Yearly</option>
+                <option value="Work remotely">Work remotely</option>
+              </select>
+            </div>
+          </div>
+          <input
+            type="submit"
+            className="block mt-12 bg-blue text-white font-semibold px-8 py-2 rounded-sm cursor-pointer "
+          />
         </form>
       </div>
     </div>
