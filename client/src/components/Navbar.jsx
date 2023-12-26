@@ -23,7 +23,7 @@ const Navbar = () => {
       title: "Salary Estimated",
     },
     {
-      path: "/Post Job",
+      path: "/post-job",
       title: "Post A Job",
     },
   ];
@@ -56,7 +56,7 @@ const Navbar = () => {
           {navItems.map(({ path, title }) => (
             <li key={path} className="text-base text-primary">
               <NavLink
-                style={({ isActive, isPending }) => {
+                style={({ isActive }) => {
                   return {
                     color: isActive ? "blue" : "inherit",
                   };
