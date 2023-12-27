@@ -3,6 +3,7 @@ import PageHeader from "../components/PageHeader";
 
 const SalaryEstimate = () => {
   const [serachText, setSearchText] = useState("");
+
   return (
     <div className="max-w-screen-2xl container mx-auto xl:pax-24 px-4">
       <PageHeader title={"Estimate Salary"} path={"Salary"} />
