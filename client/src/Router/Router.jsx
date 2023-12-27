@@ -30,6 +30,10 @@ const Router = createBrowserRouter([
         path: "/my-job",
         element: <MyJobs />,
       },
+      {
+        path: "/salary",
+        element: <SalaryEstimate />,
+      },
     ],
   },
 ]);
