@@ -9,6 +9,7 @@ const CreateJob = () => {
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm();
@@ -24,6 +25,11 @@ const CreateJob = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+
+        if (result.acknowledged === true) {
+          alert("Job posted Successfully..");
+        }
+        reset();
       });
   };
 
@@ -131,7 +137,7 @@ const CreateJob = () => {
               >
                 <option value="">Select your Experience Level</option>
                 <option value="Any experience">Any experience</option>
-                <option value="Internship">Yearly</option>
+                <option value="Internship">Internship</option>
                 <option value="Work remotely">Work remotely</option>
               </select>
             </div>
@@ -182,7 +188,9 @@ const CreateJob = () => {
             <label className="block mb-2 text-lg">Job Description</label>
             <textarea
               className="w-full pl-3 py=1.5 focus:outline-none"
-              defaultValue={"Demo text"}
+              defaultValue={
+                "Mollit in laborum tempor Lorem incididunt irure. Aute eu ex ad sunt. Pariatur sint culpa do incididunt eiusmod eiusmod culpa. laborum tempor Lorem incididunt."
+              }
               rows={6}
               placeholder="Job Description"
               {...register("description")}
