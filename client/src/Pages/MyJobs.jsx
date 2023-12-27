@@ -59,7 +59,7 @@ const MyJobs = () => {
   };
 
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
+    <div className=" bg-grey max-w-screen-2xl container mx-auto xl:px-24 px-4">
       <div>
         <h1 className="text-center p-4">All My Jobs</h1>
         <div className="search-box p-2 text-center mb-2">
