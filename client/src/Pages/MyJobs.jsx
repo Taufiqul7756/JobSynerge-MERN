@@ -54,7 +54,11 @@ const MyJobs = () => {
       .then((data) => {
         if (data.acknowledged === true) {
           alert("Job deleted Successfully");
+          setJobs((prevJobs) => prevJobs.filter((job) => job._id !== id));
         }
+      })
+      .catch((error) => {
+        console.error("Error deleting job:", error);
       });
   };
 
