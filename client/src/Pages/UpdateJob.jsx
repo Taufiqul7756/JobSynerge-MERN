@@ -38,7 +38,7 @@ const UpdateJob = () => {
     data.skills = selectedOptions;
     // console.log(data);
     // https://job-synergy.onrender.com
-    fetch(`http://localhost:5000/update-job/${id}`, {
+    fetch(`https://job-synergy.onrender.com/update-job/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
