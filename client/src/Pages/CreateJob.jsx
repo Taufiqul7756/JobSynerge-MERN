@@ -123,7 +123,7 @@ const CreateJob = () => {
               <label className="block mb-2 text-lg">Job Posting Date</label>
               <input
                 type="date"
-                placeholder="Ex: 2023-12-26"
+                placeholder="Ex: 12/28/2023"
                 {...register("postingDate")}
                 className="create-job-input"
               />
