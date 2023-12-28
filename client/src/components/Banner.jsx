@@ -6,7 +6,7 @@ const Banner = ({ query, handleInputChange }) => {
   return (
     <div className="bg-grey max-w-screen-2xl container mx-auto xl:px-24 px-4 md:py-20 py-14">
       <h1 className="text-5xl font-bold text-primary mb-3">
-        Find your <span className="text-blue">new job</span> today
+        Find Recent <span className="text-blue"> job</span> Circular
       </h1>
       <p className="text-lg text-black/70 mb-8">
         {" "}
