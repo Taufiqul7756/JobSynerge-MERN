@@ -10,7 +10,7 @@ const MyJobs = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/myJobs/welldev@gmail.com")
+    fetch("https://job-synergy.onrender.com/myJobs/welldev@gmail.com")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -47,7 +47,7 @@ const MyJobs = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/job/${id}`, {
+    fetch(`https://job-synergy.onrender.com/job/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -17,7 +17,7 @@ const CreateJob = () => {
   const onSubmit = (data) => {
     data.skills = selectedOptions;
     // console.log(data);
-    fetch("http://localhost:5000/post-job", {
+    fetch("https://job-synergy.onrender.com/post-job", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
