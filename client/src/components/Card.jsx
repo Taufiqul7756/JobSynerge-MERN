@@ -6,6 +6,7 @@ const Card = ({ data }) => {
   console.log("card", data);
 
   const {
+    _id,
     companyName,
     companyLogo,
     jobTitle,
@@ -20,7 +21,10 @@ const Card = ({ data }) => {
   } = data;
   return (
     <section className=" border mb-2 p-2 cursor-pointer ">
-      <Link to={"/"} className="flex gap-4 flex-col sm:flex-row items-start">
+      <Link
+        to={`/job/${_id}`}
+        className="flex gap-4 flex-col sm:flex-row items-start"
+      >
         <img src={companyLogo} alt="" />
         <div>
           <h4 className="text-primary mb-1">{companyName}</h4>
