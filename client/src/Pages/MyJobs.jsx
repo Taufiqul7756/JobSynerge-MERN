@@ -10,7 +10,7 @@ const MyJobs = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://job-synergy.onrender.com/myJobs/welldev@gmail.com") // need to change after authentication
+    fetch("https://job-synergy.onrender.com/myJobs/taufiq@gmail.com") // need to change after authentication
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
