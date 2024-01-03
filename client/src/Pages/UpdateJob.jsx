@@ -26,6 +26,7 @@ const UpdateJob = () => {
   } = useLoaderData();
 
   const [selectedOptions, setSelectedOptions] = useState(null);
+  const [selectedBenefitsOptions, setSelectedBenefitsOptions] = useState(null);
   const {
     register,
     handleSubmit,
@@ -36,6 +37,7 @@ const UpdateJob = () => {
 
   const onSubmit = (data) => {
     data.skills = selectedOptions;
+    data.benefits = selectedBenefitsOptions;
     // console.log(data);
     // https://job-synergy.onrender.com
     fetch(`https://job-synergy.onrender.com/update-job/${id}`, {
@@ -64,6 +66,17 @@ const UpdateJob = () => {
     { value: "C++", label: "C++" },
     { value: "MongoDB", label: "MongoDB" },
     { value: "Redux", label: "Redux" },
+  ];
+  const benefitsOptions = [
+    { value: "Health insurance", label: "HealthInsurance" },
+    { value: "Unlimited Tea and Coffee", label: "UnlimitedTeaAndCoffee" },
+    { value: "Fully Lunch subsidiaries", label: "FullyLunchSubsidiaries" },
+    { value: "Flexible working hours", label: "FlexibleWorkingHours" },
+    { value: "Dental insurance", label: "DentalInsurance" },
+    { value: "Paid time off", label: "PaidTimeOff" },
+    { value: "Vision insurance", label: "VisionInsurance" },
+    { value: "Yearly salary review", label: "YearlySalaryReview" },
+    { value: "Yearly 4 times bonus", label: "Yearly4timesBonus" },
   ];
   return (
     <div className="bg-grey max-w-screen-2xl container mx-auto xl:px-24 px-4">
@@ -208,8 +221,20 @@ const UpdateJob = () => {
               </select>
             </div>
           </div>
-
           {/* 7th row */}
+
+          <div>
+            <label className="block mb-2 text-lg">Required Skills Sets: </label>
+            <Creatable
+              className="create-job-input py-4"
+              onChange={setSelectedBenefitsOptions}
+              options={benefitsOptions}
+              isMulti
+              defaultValue={selectedBenefitsOptions}
+            />
+          </div>
+
+          {/* 8th row */}
           <div className="create-job-input">
             <label className="block mb-2 text-lg">Job Description</label>
             <textarea
