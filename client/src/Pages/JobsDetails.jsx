@@ -7,12 +7,14 @@ import { FaBriefcase } from "react-icons/fa6";
 const JobsDetails = () => {
   const { id } = useParams();
   const [job, setJob] = useState([]);
+  console.log("job", job);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/all-jobs/${id}`)
+    fetch(`https://job-synergy.onrender.com/all-jobs/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setJob(data);
+        console.log("kkkk", data);
       });
   }, []);
 
@@ -37,7 +39,6 @@ const JobsDetails = () => {
         <FaBriefcase />
         <h3>Job Type</h3>
       </div>
-      <h1>{job.jobTitle}</h1>
 
       <div className="">
         <button className="bg-blue/70 px-8 py-2 text-white">
@@ -46,6 +47,32 @@ const JobsDetails = () => {
         <button onClick={handleApply} className="bg-blue px-8 py-2 text-white">
           Apply Now
         </button>
+      </div>
+
+      {/* Job Details one by one  bg-[#fbf9f9]*/}
+
+      <div className=" md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-1 ">
+        <div className="p-4 rounded">
+          <h1 className="font-bold py-3">Benefits</h1>
+          <p className="py-2">Pulled from full job description</p>
+          <div>
+            {job.benefits && job.benefits.length > 0 && (
+              <div>
+                <ul>
+                  {job.benefits.map((benefit, index) => (
+                    <li key={index}>{`${index + 1}. ${benefit.label}`}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="col-span-2 p-4 rounded">
+          <h1>Middle</h1>
+        </div>
+        <div className=" p-4 rounded">
+          <h1>Right</h1>
+        </div>
       </div>
     </div>
   );
