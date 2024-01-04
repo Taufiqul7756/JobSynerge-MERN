@@ -19,14 +19,13 @@ const JobsDetails = () => {
   }, []);
 
   const handleApply = async () => {
-    const { value: email } = await Swal.fire({
-      title: "Input email address",
-      input: "email",
-      inputLabel: "Your email address",
-      inputPlaceholder: "Enter your email address",
+    const { value: url } = await Swal.fire({
+      input: "url",
+      inputLabel: "URL address",
+      inputPlaceholder: "Enter the URL",
     });
-    if (email) {
-      Swal.fire(`Entered email: ${email}`);
+    if (url) {
+      Swal.fire(`Entered URL: ${url}`);
     }
   };
   return (
@@ -34,13 +33,13 @@ const JobsDetails = () => {
       <PageHeader title={"Single Job Page"} path={"Single Job"} />
       <h2>Job ID: {id}</h2>
       <h2 className="text-blue font-semibold text-lg py-1">Job Details </h2>
-      <p className="text-black font-sm py-2">{job.description}</p>
+      <p className="text-black font-sm py-4">{job.description}</p>
       <div className="flex gap-2">
         <FaBriefcase />
         <h3>Job Type</h3>
       </div>
 
-      <div className="">
+      <div className="flex py-2 gap-3">
         <button className="bg-blue/70 px-8 py-2 text-white">
           {job.employmentType}
         </button>
@@ -51,8 +50,8 @@ const JobsDetails = () => {
 
       {/* Job Details one by one  bg-[#fbf9f9]*/}
 
-      <div className=" md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-1 ">
-        <div className="p-4 rounded">
+      <div className=" flex md:grid grid-cols-4 gap-8 lg:px-0 py-1 text-semibold ">
+        <div className=" py-4 rounded">
           <h1 className="font-bold py-3 text-blue/70">Benefits</h1>
           <p className="py-2">Pulled from full job description</p>
           <div>
@@ -67,13 +66,14 @@ const JobsDetails = () => {
             )}
           </div>
         </div>
-        <div className="col-span-2 p-4 rounded">
-          <h1 className="font-bold text-blue/70">Company OutLine</h1>
-          <h4>{job.outline}</h4>
-        </div>
-        <div className=" p-4 rounded">
+
+        <div className="py-4 rounded">
           <h1 className="font-bold text-blue/70">Future Growth</h1>
           <h4>{job.futureGrowth}</h4>
+        </div>
+        <div className=" py-4 rounded">
+          <h1 className="font-bold text-blue/70">Company OutLine</h1>
+          <h4>{job.outline}</h4>
         </div>
       </div>
     </div>
