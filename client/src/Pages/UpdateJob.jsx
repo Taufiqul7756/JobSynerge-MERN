@@ -245,6 +245,28 @@ const UpdateJob = () => {
               {...register("description")}
             />
           </div>
+          {/* 9th row  Outline*/}
+          <div className="create-job-input">
+            <label className="block mb-2 text-lg">Company OutLine</label>
+            <textarea
+              className="w-full pl-3 py=1.5 focus:outline-none"
+              defaultValue={"Write Your Company OutLine"}
+              rows={6}
+              placeholder="Job Description"
+              {...register("outline")}
+            />
+          </div>
+          {/* 10th row Future Growth */}
+          <div className="create-job-input">
+            <label className="block mb-2 text-lg">Future Growth</label>
+            <textarea
+              className="w-full pl-3 py=1.5 focus:outline-none"
+              defaultValue={"Write Future Growth"}
+              rows={6}
+              placeholder="Job Description"
+              {...register("futureGrowth")}
+            />
+          </div>
 
           {/* last row */}
 

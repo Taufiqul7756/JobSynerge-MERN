@@ -53,7 +53,7 @@ const JobsDetails = () => {
 
       <div className=" md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-1 ">
         <div className="p-4 rounded">
-          <h1 className="font-bold py-3">Benefits</h1>
+          <h1 className="font-bold py-3 text-blue/70">Benefits</h1>
           <p className="py-2">Pulled from full job description</p>
           <div>
             {job.benefits && job.benefits.length > 0 && (
@@ -68,10 +68,12 @@ const JobsDetails = () => {
           </div>
         </div>
         <div className="col-span-2 p-4 rounded">
-          <h1>Middle</h1>
+          <h1 className="font-bold text-blue/70">Company OutLine</h1>
+          <h4>{job.outline}</h4>
         </div>
         <div className=" p-4 rounded">
-          <h1>Right</h1>
+          <h1 className="font-bold text-blue/70">Future Growth</h1>
+          <h4>{job.futureGrowth}</h4>
         </div>
       </div>
     </div>
