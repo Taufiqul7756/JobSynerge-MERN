@@ -16,6 +16,7 @@ const CreateJob = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     data.skills = selectedOptions;
     data.benefits = selectedBenefitsOptions;
     // console.log(data);
@@ -26,11 +27,10 @@ const CreateJob = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-
         if (result.acknowledged === true) {
           alert("Job posted Successfully..");
         }
+        console.log(result);
         reset();
       });
   };
@@ -226,6 +226,28 @@ const CreateJob = () => {
             />
           </div>
 
+          {/* 9th row  Outline*/}
+          <div className="create-job-input">
+            <label className="block mb-2 text-lg">Company OutLine</label>
+            <textarea
+              className="w-full pl-3 py=1.5 focus:outline-none"
+              defaultValue={"Write Your Company OutLine"}
+              rows={6}
+              placeholder="Job Description"
+              {...register("outline")}
+            />
+          </div>
+          {/* 10th row Future Growth */}
+          <div className="create-job-input">
+            <label className="block mb-2 text-lg">Future Growth</label>
+            <textarea
+              className="w-full pl-3 py=1.5 focus:outline-none"
+              defaultValue={"Write Future Growth"}
+              rows={6}
+              placeholder="Job Description"
+              {...register("futureGrowth")}
+            />
+          </div>
           {/* last row */}
 
           <div className="w-full">
